@@ -4,9 +4,13 @@
 
 ## 快速开始
 
-仓库**不包含**模型权重（7.7 GB）与 fork 二进制（658 MB），需要先各自下载：
+仓库**不包含**模型权重（7.7 GB）与 fork 二进制（658 MB），需要先各自下载。
 
 ```powershell
+# 0) 克隆仓库
+git clone https://github.com/wtao83520/7788Bonsai-2-27B-windows.git
+cd 7788Bonsai-2-27B-windows
+
 # 1) 下载 PrismML fork 运行时（必须用它，原版 llama.cpp 无法加载 PQ2_0）
 #    见 bin/README.md —— 从 PrismML-Eng/llama.cpp Releases 取 win-cuda-13.x 包
 #    解压后所有 exe/dll 平铺到 bin/
@@ -23,6 +27,8 @@ hf download prism-ml/Ternary-Bonsai-2-27B-gguf `
 # 或一键重启（停止 → 等显存释放 → 启动 → 自检）
 .\restart-server.cmd
 ```
+
+> 从别处拷来的目录可跳过第 0 步。仓库只含脚本与文档（约 120 KB）。
 
 启动后即可用 OpenAI SDK 调用：
 
