@@ -1,0 +1,37 @@
+# ============================================================================
+#  ⚠ 本项目是 Windows 专用，且 PowerShell 脚本【必须】保存为 UTF-8 with BOM。
+#
+#  Windows PowerShell 5.1 会把不含 BOM 的 .ps1/.psd1 当作 GBK(ANSI) 解析，
+#  一旦脚本里有中文就会出现乱码甚至语法错误。
+#
+#  因此这里对全部文件关闭 git 的文本转换（`-text` = 不做 CRLF↔LF 归一化，
+#  也不做编码转换），确保提交进去的字节与本地文件完全一致，BOM 得以保留。
+#  如果你在 Linux/macOS 上 clone，请勿让编辑器"转换为 LF"。
+# ============================================================================
+* -text
+
+# ---- 二进制文件：明确标记，避免 git 尝试 diff ----
+*.gguf   binary
+*.exe    binary
+*.dll    binary
+*.lib    binary
+*.so     binary
+*.dylib  binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.webp   binary
+*.mp4    binary
+*.webm   binary
+*.zip    binary
+*.7z     binary
+
+# ---- 文本文件 ----
+# 注意：这里**不能**写 `*.ps1 text`，否则会覆盖上面的 `* -text`、
+# 重新启用行尾归一化（CRLF→LF），导致每次提交产生无意义的整文件差异。
+# 只写 `-text` 时 git 仍能正常做文本 diff（`-text` 只关掉行尾转换，
+# 不像 `binary` 那样同时关掉 diff）。
+
+# ---- GitHub 仓库页面的语言统计 ----
+*.ps1    linguist-language=PowerShell
+*.psd1   linguist-language=PowerShell
