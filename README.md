@@ -81,6 +81,7 @@ bonsai/
 ├── logs/                         # 🚫 服务日志与状态（自动生成）
 ├── images/                       # media-path 目录（file:// 引用的本地图片/视频放这里）
 ├── .gitignore / .gitattributes   # 排除大文件；锁定 UTF-8 BOM 不被转换
+├── LICENSE                       # MIT
 ├── server-config.psd1            # ★ 服务配置文件（所有参数在此调整）
 ├── start-server.ps1 / .cmd       # 一键启动 API 服务
 ├── restart-server.ps1 / .cmd     # 一键重启（停止 → 等显存释放 → 启动 → 自检）
@@ -683,3 +684,22 @@ AllowedOrigins = "http://192.168.1.50" # 可选：限制 CORS 来源
 |---|---|---|
 | RTX 4090 (24 GB)，官方 | 81.2 tok/s | 3124 tok/s |
 | **本机实测** | **81.9 tok/s** | — |
+
+---
+
+## 许可
+
+本项目（脚本与文档）采用 **MIT License**，见 [`LICENSE`](LICENSE)。
+
+### 第三方组件
+
+本项目**不打包**第三方代码或模型权重，需自行下载，各自遵循原协议：
+
+| 组件 | 协议 | 说明 |
+|---|---|---|
+| [PrismML-Eng/llama.cpp](https://github.com/PrismML-Eng/llama.cpp) fork | MIT | `bin/` 中的推理二进制，本项目仅提供下载说明 |
+| [prism-ml/Ternary-Bonsai-2-27B-gguf](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) | apache-2.0 | 模型权重（含 mmproj 视觉塔），一并遵循其模型卡使用条款 |
+| 上游 [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | MIT | fork 的上游项目 |
+
+> 使用模型权重前建议阅读其 [模型卡](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf)
+> 中的用途限制说明。
